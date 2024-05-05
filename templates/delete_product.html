@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Xóa sản phẩm</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #f4f4f4, #e9e9e9);
+        transition: background-color 0.5s;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+        padding: 20px 0;
+        background-color: #ddd;
+        transition: color 0.5s, background-color 0.5s;
+    }
+
+    h1:hover {
+        color: #666;
+        background-color: #ccc;
+    }
+
+    form {
+        width: 80%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 20px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+        margin: 10px; /* Thêm lề cho các nút */
+        transition: background-color 0.5s;
+    }
+
+    .btn-delete {
+        color: #fff;
+        background-color: #f44336; /* Màu đỏ */
+    }
+
+    .btn-delete:hover {background-color: #d32f2f}
+
+    .btn-delete:active {
+        background-color: #d32f2f;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+    .btn-cancel {
+        color: #fff;
+        background-color: #4CAF50; /* Màu xanh lá cây */
+    }
+
+    .btn-cancel:hover {background-color: #388E3C}
+
+    .btn-cancel:active {
+        background-color: #388E3C;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+    .back-button {
+        background-color: #f44336; /* Red */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        transition: background 0.5s;
+    }
+
+    .back-button:hover {
+        background-color: #da190b;
+    }
+    </style>
+</head>
+<body>
+    <a href="http://127.0.0.1:5000/products" class="back-button">Quay lại</a>
+    <h1>Xóa sản phẩm</h1>
+    <p>Bạn thực sự muốn xóa sản phẩm {{ product.name }}?</p>
+    <form method="POST" style="text-align: center;">
+        <input type="submit" class="btn btn-delete" value="Xóa sản phẩm">
+        <a href="/products" class="btn btn-cancel">Không xóa sản phẩm</a> <!-- Nút Không xóa sản phẩm đã được chuyển sang bên phải -->
+    </form>
+</body>
+</html>
