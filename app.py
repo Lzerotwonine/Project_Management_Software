@@ -63,7 +63,7 @@ def do_login():
             # Lưu thông tin đăng nhập vào session
             session['logged_in'] = True
             session['username'] = user['username']  # Lưu username vào session
-            return redirect(url_for('test'))
+            return redirect(url_for('home'))
         else:
             return "Tên người dùng hoặc mật khẩu không đúng."
     return render_template('login.html', title='Login', form=form)
@@ -73,7 +73,7 @@ def logout():
     # Xóa thông tin đăng nhập khỏi session
     session.pop('logged_in', None)
     session.pop('username', None)
-    return redirect(url_for('test'))
+    return redirect(url_for('home'))
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -91,10 +91,6 @@ def register():
 def home():
     return render_template('home.html', title='Home')
 
-@app.route('/test', methods=['GET'])
-def test():
-    return render_template('test.html', title='Test')
-
 
 @app.route('/products', methods=['GET'])
 def products():
@@ -108,7 +104,8 @@ def products():
         "description": { "$exists": True },
         "price": { "$exists": True },
         "quantity_in_stock": { "$exists": True },
-        "image_path": { "$exists": True }
+        "image_path": { "$exists": True },
+        "nha_phan_phoi": { "$exists": True }
     })
 
     # Hiển thị trang 'products.html' với danh sách sản phẩm
@@ -122,6 +119,7 @@ def add_product():
         description = request.form.get('description')
         price = request.form.get('price')
         quantity_in_stock = request.form.get('quantity_in_stock')
+        nha_phan_phoi = request.form.get('nha_phan_phoi')
 
         # Lưu hình ảnh đã tải lên
         if 'image' in request.files:
@@ -135,13 +133,15 @@ def add_product():
         else:
             image_path = ''
 
+
         # Tạo một sản phẩm mới
         product = {
             "name": name,
             "description": description,
             "price": price,
             "quantity_in_stock": quantity_in_stock,
-            "image_path": image_path
+            "image_path": image_path,
+            "nha_phan_phoi": nha_phan_phoi
         }
 
         # Thêm sản phẩm mới vào cơ sở dữ liệu
@@ -218,7 +218,15 @@ def delete_product(id):
     if request.method == 'POST':
         collection.delete_one({"_id": ObjectId(id)})
         flash('Sản phẩm đã được xóa thành công!')
-        return redirect(url_for('products'))
+        last_query = session.get('last_query')
+        last_sort_by = session.get('last_sort_by')
+        last_order = session.get('last_order')
+        if last_query:
+            return redirect(url_for('search', query=last_query))
+        elif last_sort_by and last_order:
+            return redirect(url_for('sort', sort_by=last_sort_by, order=last_order))
+        else:
+            return redirect(url_for('products'))
     else:
         return render_template('delete_product.html', product=product)
 
@@ -292,7 +300,6 @@ def add_order():
             "product_id": form.product_name.data,  # Lưu _id của sản phẩm
             "quantity": form.quantity.data,
             "price": int(form.quantity.data) * int(product['price'])  # Chuyển đổi quantity và price thành int và Cập nhật giá dựa trên số lượng đặt hàng
-
         }
 
         # Thêm đơn hàng mới vào cơ sở dữ liệu
@@ -317,9 +324,6 @@ def add_order():
         }
         sold_product_collection.insert_one(sold_product)
 
-
-
-
         # Hiển thị thông báo và chuyển hướng người dùng
         flash('Đơn hàng đã được thêm thành công!')
         return redirect(url_for('orders'))
@@ -341,8 +345,6 @@ def orders():
             if product:
                 order['product_name'] = product['name']  # add product name to the order
     return render_template('orders.html', orders=orders)
-
-
 
 
 
@@ -373,7 +375,7 @@ def top_selling_products():
     sold_products = sold_product_collection.aggregate([
         {"$group": {"_id": "$name", "total_quantity": {"$sum": "$quantity_sold"}}},
         {"$sort": {"total_quantity": -1}},
-        {"$limit": 3}
+        {"$limit": 5}
     ])
     top_selling_products = list(sold_products)
     # Thêm thông tin hình ảnh vào danh sách sản phẩm bán chạy nhất
@@ -385,8 +387,6 @@ def top_selling_products():
 
 
 
-
-
 @app.route('/inventory_summary', methods=['GET'])
 def inventory_summary():
     collection = connect_to_mongodb('SanPham')
@@ -394,6 +394,127 @@ def inventory_summary():
     total_quantity = sum(int(product['quantity_in_stock']) for product in products if 'quantity_in_stock' in product)
     total_value = sum(int(product['price']) * int(product['quantity_in_stock']) for product in products if 'price' in product and 'quantity_in_stock' in product)
     return jsonify({"total_quantity": total_quantity, "total_value": total_value})
+
+
+
+@app.route('/low_stock_products', methods=['GET'])
+def low_stock_products():
+    collection = connect_to_mongodb('SanPham')
+    pipeline = [
+        {"$match": {"quantity_in_stock": {"$lt": 30}}},
+        {"$project": {"_id": 0, "name": 1, "image_path": 1, "quantity_in_stock": 1}},
+        {"$sort": {"quantity_in_stock": 1}},
+    ]
+    low_stock_products = collection.aggregate(pipeline)
+    return jsonify(list(low_stock_products))
+    # Thêm thông tin hình ảnh vào danh sách sản phẩm sắp hết
+    for product in low_stock_products:
+        product_info = product_collection.find_one({"_id": product["_id"]})
+        if product_info and "image_path" in product_info:
+            product["image_path"] = product_info["image_path"]
+    return jsonify(low_stock_products)
+
+
+
+@app.route('/distributors', methods=['GET'])
+def distributors():
+    # Kết nối đến cơ sở dữ liệu MongoDB
+    client = MongoClient('mongodb://localhost:27017/')
+    db = client['QuanLyDuAnPhanMem']
+    collection = db['NhaPhanPhoi']
+
+    # Lấy danh sách nhà phân phối từ cơ sở dữ liệu
+    distributors = collection.find()
+
+    # Hiển thị trang 'distributors.html' với danh sách nhà phân phối
+    return render_template('distributors.html', distributors=distributors)
+
+def connect_to_mongodbNhaPhanPhoi():
+    client = MongoClient('mongodb://localhost:27017/')
+    db = client['QuanLyDuAnPhanMem']
+    return db['NhaPhanPhoi']
+
+@app.route('/add_distributor', methods=['GET', 'POST'])
+
+def add_distributor():
+    if request.method == 'POST':
+        # Chia chuỗi nhập vào thành một danh sách các tên sản phẩm
+        san_pham_phan_phoi = request.form.get('san_pham_phan_phoi').split('\n')
+        # Loại bỏ các dòng trống
+        san_pham_phan_phoi = [san_pham for san_pham in san_pham_phan_phoi if san_pham]
+        # Chuyển đổi danh sách các tên sản phẩm thành danh sách các đối tượng sản phẩm
+        san_pham_phan_phoi = [{"name": san_pham} for san_pham in san_pham_phan_phoi]
+
+        distributor = {
+            "ten_nha_phan_phoi": request.form.get('ten_nha_phan_phoi'),
+            "dia_chi": request.form.get('dia_chi'),
+            "so_dien_thoai": request.form.get('so_dien_thoai'),
+            "san_pham_phan_phoi": san_pham_phan_phoi
+        }
+        collection = connect_to_mongodbNhaPhanPhoi()
+        collection.insert_one(distributor)
+        return redirect(url_for('distributors'))
+    return render_template('add_distributor.html')
+
+@app.route('/edit_distributor/<id>', methods=['GET', 'POST'])
+
+def edit_distributor(id):
+    collection = connect_to_mongodbNhaPhanPhoi()
+    if request.method == 'POST':
+        # Chia chuỗi nhập vào thành một danh sách các tên sản phẩm
+        san_pham_phan_phoi = request.form.get('san_pham_phan_phoi').split('\n')
+        # Loại bỏ các dòng trống
+        san_pham_phan_phoi = [san_pham for san_pham in san_pham_phan_phoi if san_pham]
+        # Chuyển đổi danh sách các tên sản phẩm thành danh sách các đối tượng sản phẩm
+        san_pham_phan_phoi = [{"name": san_pham} for san_pham in san_pham_phan_phoi]
+
+        distributor = {
+            "ten_nha_phan_phoi": request.form.get('ten_nha_phan_phoi'),
+            "dia_chi": request.form.get('dia_chi'),
+            "so_dien_thoai": request.form.get('so_dien_thoai'),
+            "san_pham_phan_phoi": san_pham_phan_phoi  # Cập nhật danh sách sản phẩm phân phối
+        }
+        collection.update_one({"_id": ObjectId(id)}, {"$set": distributor})
+        return redirect(url_for('distributors'))
+    distributor = collection.find_one({"_id": ObjectId(id)})
+
+    # Chuyển đổi danh sách sản phẩm thành chuỗi
+    san_pham_phan_phoi = '\n'.join([san_pham['name'] for san_pham in distributor['san_pham_phan_phoi']])
+    distributor['san_pham_phan_phoi'] = san_pham_phan_phoi
+    return render_template('edit_distributor.html', distributor=distributor)
+
+@app.route('/delete_distributor/<id>', methods=['GET', 'POST'])
+
+def delete_distributor(id):
+    collection = connect_to_mongodbNhaPhanPhoi()
+    if request.method == 'POST':
+        collection.delete_one({"_id": ObjectId(id)})
+        return redirect(url_for('distributors'))
+    distributor = collection.find_one({"_id": ObjectId(id)})
+    return render_template('delete_distributor.html', distributor=distributor)
+
+
+
+@app.route('/search', methods=['GET'])
+def search():
+    query = request.args.get('query')
+    session['last_query'] = query  # Lưu trữ truy vấn
+    collection = connect_to_mongodb('SanPham')
+    products = collection.find({"$or": [{"name": {"$regex": query, "$options": 'i'}}, {"nha_phan_phoi": {"$regex": query, "$options": 'i'}}]})
+    return render_template('products.html', products=products)
+
+@app.route('/sort', methods=['GET'])
+def sort():
+    sort_by = request.args.get('sort_by')
+    order = request.args.get('order')
+    session['last_sort_by'] = sort_by  # Lưu trữ trường sắp xếp
+    session['last_order'] = order  # Lưu trữ thứ tự sắp xếp
+    collection = connect_to_mongodb('SanPham')
+    if order == 'asc':
+        products = collection.find().sort(sort_by, 1)
+    else:
+        products = collection.find().sort(sort_by, -1)
+    return render_template('products.html', products=products)
 
 
 
