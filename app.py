@@ -64,8 +64,7 @@ def do_login():
             session['logged_in'] = True
             session['username'] = user['username']  # Lưu username vào session
             return redirect(url_for('home'))
-        else:
-            return "Tên người dùng hoặc mật khẩu không đúng."
+        
     return render_template('login.html', title='Login', form=form)
 
 @app.route('/logout')
@@ -120,7 +119,8 @@ def add_product():
         price = request.form.get('price')
         quantity_in_stock = request.form.get('quantity_in_stock')
         nha_phan_phoi = request.form.get('nha_phan_phoi')
-
+        if price < '0' or int(quantity_in_stock) < 0:
+            return render_template('add_product.html')
         # Lưu hình ảnh đã tải lên
         if 'image' in request.files:
             file = request.files['image']
@@ -176,6 +176,11 @@ def edit_product(id):
         price = request.form.get('price')
         quantity_in_stock = request.form.get('quantity_in_stock')
 
+        # Kiểm tra giá và số lượng phải lớn hơn 0
+        if float(price) <= 0 or int(quantity_in_stock) <= 0:
+            flash('Giá và số lượng phải lớn hơn 0!')
+            return render_template('edit_product.html', product=product)
+
         # Lưu hình ảnh đã tải lên
         if 'image' in request.files:
             file = request.files['image']
@@ -206,6 +211,7 @@ def edit_product(id):
 
     # Hiển thị form chỉnh sửa sản phẩm
     return render_template('edit_product.html', product=product)
+
 
 
 
