@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from flask import Flask, flash, jsonify, request
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, session
 from flask_wtf import FlaskForm
 from wtforms import FileField, FloatField, HiddenField, IntegerField, SelectField, StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
@@ -26,16 +26,14 @@ app.config['UPLOAD_FOLDER'] = 'static/images'
 
 def allowed_file(filename):
     return '.' in filename and \
-           filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
+        filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
 
 
-def connect_to_mongodb():
+def connect_to_mongodb(collection_name):
     client = MongoClient('mongodb://localhost:27017/')
     db = client['QuanLyDuAnPhanMem']
-    collection = db['SanPham']
-    return collection   
-
-
+    collection = db[collection_name]
+    return collection
 
 app.config['SECRET_KEY'] = 'your-secret-key'
 
@@ -59,11 +57,23 @@ class LoginForm(FlaskForm):
 def do_login():
     form = LoginForm()
     if form.validate_on_submit():
-        collection = connect_to_mongodb()
-        user = collection.find_one({"email": form.email.data})
+        account = connect_to_mongodb('TaiKhoan')
+        user = account.find_one({"email": form.email.data})
         if user and check_password_hash(user["password"], form.password.data):
-            return redirect(url_for('home'))
+            # Lưu thông tin đăng nhập vào session
+            session['logged_in'] = True
+            session['username'] = user['username']  # Lưu username vào session
+            return redirect(url_for('test'))
+        else:
+            return "Tên người dùng hoặc mật khẩu không đúng."
     return render_template('login.html', title='Login', form=form)
+
+@app.route('/logout')
+def logout():
+    # Xóa thông tin đăng nhập khỏi session
+    session.pop('logged_in', None)
+    session.pop('username', None)
+    return redirect(url_for('test'))
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -71,8 +81,8 @@ def register():
     if form.validate_on_submit():
         hashed_password = generate_password_hash(form.password.data)
         user = {"username": form.username.data, "email": form.email.data, "password": hashed_password}
-        collection = connect_to_mongodb()
-        collection.insert_one(user)
+        account = connect_to_mongodb('TaiKhoan')
+        account.insert_one(user)
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
@@ -89,7 +99,7 @@ def test():
 @app.route('/products', methods=['GET'])
 def products():
     # Kết nối đến cơ sở dữ liệu MongoDB
-    collection = connect_to_mongodb()
+    collection = connect_to_mongodb('SanPham')
 
     # Lấy danh sách sản phẩm từ cơ sở dữ liệu
     # Chỉ lấy các document có đầy đủ các trường cần thiết
@@ -135,7 +145,7 @@ def add_product():
         }
 
         # Thêm sản phẩm mới vào cơ sở dữ liệu
-        collection = connect_to_mongodb()
+        collection = connect_to_mongodb('SanPham')
         collection.insert_one(product)
 
         # Hiển thị thông báo và chuyển hướng người dùng
@@ -156,7 +166,7 @@ class EditProductForm(FlaskForm):
 
 @app.route('/edit_product/<id>', methods=['GET', 'POST'])
 def edit_product(id):
-    collection = connect_to_mongodb()
+    collection = connect_to_mongodb('SanPham')
     product = collection.find_one({"_id": ObjectId(id)})
 
     if request.method == 'POST':
@@ -202,7 +212,7 @@ def edit_product(id):
 
 @app.route('/delete_product/<id>', methods=['GET', 'POST'])
 def delete_product(id):
-    collection = connect_to_mongodb()
+    collection = connect_to_mongodb('SanPham')
     product = collection.find_one({"_id": ObjectId(id)})
 
     if request.method == 'POST':
@@ -248,7 +258,7 @@ class OrderForm(FlaskForm):
 
 
 
-        
+
 def connect_to_orders_db():
     client = MongoClient('mongodb://localhost:27017/')
     db = client['QuanLyDuAnPhanMem']
@@ -258,7 +268,7 @@ def connect_to_orders_db():
 @app.route('/product_price', methods=['GET'])
 def product_price():
     product_id = request.args.get('product_id')
-    collection = connect_to_mongodb()
+    collection = connect_to_mongodb('SanPham')
     product = collection.find_one({"_id": ObjectId(product_id)})
     return jsonify(product['price'] if 'price' in product else 0)
 
@@ -273,7 +283,7 @@ def add_order():
     form = OrderForm()
     if form.validate_on_submit():
         print("Form data:", form.data)  # print form data for debugging
-        product_collection = connect_to_mongodb()
+        product_collection = connect_to_mongodb('SanPham')
         product = product_collection.find_one({"_id": ObjectId(form.product_name.data)})
         order = {
             "customer_name": form.customer_name.data,
@@ -282,7 +292,7 @@ def add_order():
             "product_id": form.product_name.data,  # Lưu _id của sản phẩm
             "quantity": form.quantity.data,
             "price": int(form.quantity.data) * int(product['price'])  # Chuyển đổi quantity và price thành int và Cập nhật giá dựa trên số lượng đặt hàng
-      
+
         }
 
         # Thêm đơn hàng mới vào cơ sở dữ liệu
@@ -290,8 +300,8 @@ def add_order():
         result = collection.insert_one(order)
         print("Insert result:", result)  # print insert result for debugging
 
-         # Cập nhật số lượng sản phẩm trong kho
-        product_collection = connect_to_mongodb()
+        # Cập nhật số lượng sản phẩm trong kho
+        product_collection = connect_to_mongodb('SanPham')
         product = product_collection.find_one({"_id": ObjectId(order['product_id'])})
         if product and 'quantity_in_stock' in product:
             new_quantity_in_stock = int(product['quantity_in_stock']) - order['quantity']
@@ -322,7 +332,7 @@ def add_order():
 @app.route('/orders', methods=['GET'])
 def orders():
     order_collection = connect_to_orders_db()
-    product_collection = connect_to_mongodb()  # this connects to the product collection
+    product_collection = connect_to_mongodb('SanPham')  # this connects to the product collection
     orders = list(order_collection.find())  # convert cursor to list
     for order in orders:
         product_id = order.get('product_id')
@@ -338,7 +348,7 @@ def orders():
 
 @app.route('/product_names', methods=['GET'])
 def product_names():
-    collection = connect_to_mongodb()
+    collection = connect_to_mongodb('SanPham')
     products = collection.find({}, {"_id": 0, "name": 1})  # chỉ lấy trường 'name'
     product_names = [product['name'] for product in products if 'name' in product]
     return jsonify(product_names)
@@ -346,7 +356,7 @@ def product_names():
 
 
 def get_inventory_report():
-    collection = connect_to_mongodb()
+    collection = connect_to_mongodb('SanPham')
     products = collection.find({}, {"_id": 0, "name": 1, "quantity_in_stock": 1})  # chỉ lấy trường 'name' và 'quantity_in_stock'
     return jsonify(list(products))
 
@@ -379,7 +389,7 @@ def top_selling_products():
 
 @app.route('/inventory_summary', methods=['GET'])
 def inventory_summary():
-    collection = connect_to_mongodb()
+    collection = connect_to_mongodb('SanPham')
     products = collection.find({}, {"_id": 0, "name": 1, "quantity_in_stock": 1, "price": 1})  # chỉ lấy trường 'name', 'quantity_in_stock' và 'price'
     total_quantity = sum(int(product['quantity_in_stock']) for product in products if 'quantity_in_stock' in product)
     total_value = sum(int(product['price']) * int(product['quantity_in_stock']) for product in products if 'price' in product and 'quantity_in_stock' in product)
