@@ -1,0 +1,220 @@
+[{
+  "_id": {
+    "$oid": "661a3f87016e9b5dc594c04b"
+  },
+  "name": "Giày thể thao Nike Air Max",
+  "description": "Giày thể thao Nike Air Max là một sản phẩm chất lượng cao từ Nike. Với thiết kế hiện đại và chất liệu bền, đây là lựa chọn hoàn hảo cho những người yêu thích thể thao và thời trang.",
+  "price": 1000000,
+  "quantity_in_stock": 30,
+  "image_path": "/static/images/product1.jpg",
+  "nha_phan_phoi": "Công ty Cổ phần Thời trang EvaAshoes"
+},
+{
+  "_id": {
+    "$oid": "661a3f87016e9b5dc594c04c"
+  },
+  "name": "Giày thể thao Nike Air Zoom Pegasus 38",
+  "description": "Giày thể thao Nike Air Zoom Pegasus 38 là một sản phẩm nổi bật từ thương hiệu Nike. Với thiết kế hiện đại và chất liệu cao cấp, đôi giày này mang lại sự thoải mái tối đa cho người sử dụng. Đặc biệt, công nghệ đệm Air Zoom của Nike giúp tăng cường khả năng hấp thụ xóc, mang lại trải nghiệm chạy bộ nhẹ nhàng và mượt mà. Màu sắc trang nhã và logo Nike nổi bật tạo nên vẻ ngoài thời trang và thể thao, phù hợp với mọi hoạt động hàng ngày cũng như các buổi tập luyện. Đây chắc chắn là một lựa chọn tuyệt vời cho những người yêu thích thể thao và thời trang",
+  "price": 2000000,
+  "quantity_in_stock": 5,
+  "image_path": "/static/images/product2.jpg",
+  "nha_phan_phoi": "Công ty Cổ phần Thời trang EvaAshoes"
+},
+{
+  "_id": {
+    "$oid": "661a3f87016e9b5dc594c04d"
+  },
+  "name": "Giày thể thao Adidas Ultraboost",
+  "description": "Giày thể thao Adidas Ultraboost là một sản phẩm chất lượng cao từ Adidas. Với công nghệ đệm Boost tiên tiến và thiết kế vừa vặn, đây là lựa chọn hoàn hảo cho những người yêu thích thể thao và thời trang.",
+  "price": 1500000,
+  "quantity_in_stock": 24,
+  "image_path": "/static/images/product3.jpg",
+  "nha_phan_phoi": "Công ty Giày Yee Long"
+},
+{
+  "_id": {
+    "$oid": "661a3f87016e9b5dc594c04e"
+  },
+  "name": "Máy tính xách tay Dell XPS 13",
+  "description": "Dell XPS 13 là một sản phẩm chất lượng cao từ Dell. Với thiết kế mỏng nhẹ, hiệu năng mạnh mẽ và thời lượng pin dài, đây là lựa chọn hoàn hảo cho những người cần một máy tính xách tay hiệu quả cho công việc và giải trí.",
+  "price": 25000000,
+  "quantity_in_stock": 29,
+  "image_path": "/static/images/product4.jpg",
+  "nha_phan_phoi": "Công ty Giày Yee Long"
+},
+{
+  "_id": {
+    "$oid": "661a3f87016e9b5dc594c04f"
+  },
+  "name": "Tai nghe không dây Sony WF-1000XM4",
+  "description": "Sony WF-1000XM4 là một sản phẩm chất lượng cao từ Sony. Với chất lượng âm thanh tuyệt vời, khả năng chống ồn hiệu quả và thiết kế thoải mái, đây là lựa chọn hoàn hảo cho những người yêu thích âm nhạc và công nghệ.",
+  "price": 6000000,
+  "quantity_in_stock": 35,
+  "image_path": "/static/images/product5.jpg",
+  "nha_phan_phoi": "Công ty Cổ phần Thế Giới Di Động"
+},
+{
+  "_id": {
+    "$oid": "661a3f87016e9b5dc594c050"
+  },
+  "name": "Ram Corsair Vengeance LPX 8GB/16GB 3200/3600MHz DDR4 mới 100% - Bảo hành 36 tháng",
+  "description": "Độ tin cậy và hiệu suất rất cao là lý do tại sao Ram Vengeance LPX được đánh giá là ép xung tốt nhất thế giới, những người đam mê chơi game và những hệ thống cao cấp luôn tin tưởng vào thương hiệu Corsair về các dòng bộ nhớ hiệu suất cao. Nếu bạn muốn thiết kế một hệ thống máy tính theo cá tính riêng của mình, bạn hãy nghĩ đến bộ nhớ Corsair.",
+  "price": 340000,
+  "quantity_in_stock": 60,
+  "image_path": "/static/images/product6.jpg",
+  "nha_phan_phoi": "Công ty Cổ phần Thế Giới Di Động"
+},
+{
+  "_id": {
+    "$oid": "661a3f87016e9b5dc594c051"
+  },
+  "name": "Áo sơ mi nam Uniqlo",
+  "description": "Áo sơ mi nam Uniqlo với chất liệu cotton thoáng mát, phù hợp cho mọi hoạt động hàng ngày.",
+  "price": 500000,
+  "quantity_in_stock": 95,
+  "image_path": "/static/images/product7.jpg",
+  "nha_phan_phoi": " Công Ty TNHH Sao Mai VN"
+},
+{
+  "_id": {
+    "$oid": "661a3f87016e9b5dc594c052"
+  },
+  "name": "Quần jeans nữ Levi's",
+  "description": "Quần jeans nữ Levi's với thiết kế thời trang và chất liệu bền, mang lại sự thoải mái cho người mặc.",
+  "price": 1200000,
+  "quantity_in_stock": 79,
+  "image_path": "/static/images/product8.jpg",
+  "nha_phan_phoi": " Công Ty TNHH Sao Mai VN"
+},
+{
+  "_id": {
+    "$oid": "661a3f87016e9b5dc594c053"
+  },
+  "name": "Máy tính xách tay Apple MacBook Pro",
+  "description": "Apple MacBook Pro với hiệu năng mạnh mẽ và thiết kế mỏng nhẹ, phù hợp cho công việc và giải trí.",
+  "price": 30000000,
+  "quantity_in_stock": 30,
+  "image_path": "/static/images/product9.jpg",
+  "nha_phan_phoi": "Công ty Cổ phần Bán lẻ Kỹ thuật số FPT"
+},
+{
+  "_id": {
+    "$oid": "661a3f87016e9b5dc594c054"
+  },
+  "name": "Điện thoại di động Samsung Galaxy S21",
+  "description": "Samsung Galaxy S21 với camera chất lượng cao và hiệu năng mạnh mẽ, mang lại trải nghiệm smartphone tuyệt vời.",
+  "price": 20000000,
+  "quantity_in_stock": 40,
+  "image_path": "/static/images/product10.jpg",
+  "nha_phan_phoi": "Công ty Cổ phần Bán lẻ Kỹ thuật số FPT"
+},
+{
+  "_id": {
+    "$oid": "661a3f883ef3897b2513fac9"
+  },
+  "name": "Máy ảnh Canon EOS R6",
+  "description": "Canon EOS R6 với cảm biến full-frame và khả năng lấy nét tự động nhanh, phù hợp cho nhiếp ảnh gia chuyên nghiệp.",
+  "price": 40000000,
+  "quantity_in_stock": 19,
+  "image_path": "/static/images/product11.jpg",
+  "nha_phan_phoi": "Công ty Cổ phần Dịch vụ Thương mại Tổng hợp Vincommerce"
+},
+{
+  "_id": {
+    "$oid": "661a3f883ef3897b2513faca"
+  },
+  "name": "Đồng hồ thông minh Apple Watch Series 7",
+  "description": "Apple Watch Series 7 với nhiều tính năng theo dõi sức khỏe và fitness, giúp bạn duy trì lối sống lành mạnh.",
+  "price": 10000000,
+  "quantity_in_stock": 59,
+  "image_path": "/static/images/product12.jpg",
+  "nha_phan_phoi": "Công ty Cổ phần Dịch vụ Thương mại Tổng hợp Vincommerce"
+},
+{
+  "_id": {
+    "$oid": "661a3f883ef3897b2513facb"
+  },
+  "name": "Túi xách nữ Michael Kors",
+  "description": "Túi xách nữ Michael Kors với thiết kế sang trọng và chất liệu da cao cấp, phù hợp cho những buổi tiệc và sự kiện quan trọng.",
+  "price": 5000000,
+  "quantity_in_stock": 30,
+  "image_path": "/static/images/product13.jpg",
+  "nha_phan_phoi": "Liên hiệp Hợp tác xã Thương mại TP. Hồ Chí Minh SAIGON CO.OP"
+},
+{
+  "_id": {
+    "$oid": "661a3f883ef3897b2513facc"
+  },
+  "name": "Ví nam Coach",
+  "description": "Ví nam Coach với chất liệu da bò cao cấp và thiết kế tinh tế, là một phụ kiện thời trang lý tưởng cho phái mạnh.",
+  "price": 3000000,
+  "quantity_in_stock": 79,
+  "image_path": "/static/images/product14.jpg",
+  "nha_phan_phoi": "Liên hiệp Hợp tác xã Thương mại TP. Hồ Chí Minh SAIGON CO.OP"
+},
+{
+  "_id": {
+    "$oid": "661a3f883ef3897b2513facd"
+  },
+  "name": "Nước hoa nữ Chanel No. 5",
+  "description": "Nước hoa nữ Chanel No. 5 với hương thơm quyến rũ và lâu phai, giúp bạn tự tin hơn trong mọi hoạt động.",
+  "price": 4000000,
+  "quantity_in_stock": 40,
+  "image_path": "/static/images/product15.jpg",
+  "nha_phan_phoi": "Tổng Công ty Thương mại Xuất nhập khẩu Thương Lễ LTP"
+},
+{
+  "_id": {
+    "$oid": "661a3f883ef3897b2513face"
+  },
+  "name": "Nước hoa nam Dior Sauvage",
+  "description": "Nước hoa nam Dior Sauvage với hương thơm mạnh mẽ và nam tính, là lựa chọn hoàn hảo cho phái mạnh.",
+  "price": 3500000,
+  "quantity_in_stock": 57,
+  "image_path": "/static/images/product16.jpg",
+  "nha_phan_phoi": "Tổng Công ty Thương mại Xuất nhập khẩu Thương Lễ LTP"
+},
+{
+  "_id": {
+    "$oid": "661a3f883ef3897b2513facf"
+  },
+  "name": "Máy lọc không khí Xiaomi Mi Air Purifier 3H",
+  "description": "Xiaomi Mi Air Purifier 3H với công nghệ lọc không khí hiện đại, giúp cải thiện chất lượng không khí trong nhà.",
+  "price": 3000000,
+  "quantity_in_stock": 38,
+  "image_path": "/static/images/product17.jpg",
+  "nha_phan_phoi": "Công ty Cổ phần MediaMart Việt Nam"
+},
+{
+  "_id": {
+    "$oid": "661a3f883ef3897b2513fad0"
+  },
+  "name": "Máy pha cà phê DeLonghi Magnifica S",
+  "description": "DeLonghi Magnifica S là một máy pha cà phê tự động, giúp bạn tạo ra những tách cà phê espresso và cappuccino ngon tuyệt mỗi ngày.",
+  "price": 15000000,
+  "quantity_in_stock": 26,
+  "image_path": "/static/images/product18.jpg",
+  "nha_phan_phoi": "Công ty Cổ phần MediaMart Việt Nam"
+},
+{
+  "_id": {
+    "$oid": "661a3f883ef3897b2513fad1"
+  },
+  "name": "Tivi Samsung QLED 4K 55 inch QA55Q60AA",
+  "description": "Tivi Samsung QLED 4K 55 inch QA55Q60AA với chất lượng hình ảnh 4K sắc nét và âm thanh sống động, mang lại trải nghiệm giải trí tuyệt vời.",
+  "price": 20000000,
+  "quantity_in_stock": 18,
+  "image_path": "/static/images/product19.jpg",
+  "nha_phan_phoi": "Công ty Cổ phần Central Retail Corporation Việt Nam"
+},
+{
+  "_id": {
+    "$oid": "661a3f883ef3897b2513fad2"
+  },
+  "name": "Tủ lạnh LG Inverter 400 lít GN-B422SQCL",
+  "description": "Tủ lạnh LG Inverter 400 lít GN-B422SQCL với công nghệ Inverter tiết kiệm năng lượng và dung tích lớn, phù hợp cho gia đình nhiều người.",
+  "price": 10000000,
+  "quantity_in_stock": 29,
+  "image_path": "/static/images/product20.jpg",
+  "nha_phan_phoi": "Công ty Cổ phần Central Retail Corporation Việt Nam"
+}]

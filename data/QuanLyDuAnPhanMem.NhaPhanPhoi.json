@@ -1,0 +1,180 @@
+[{
+  "_id": {
+    "$oid": "6638586cc7d8a7ac62832b29"
+  },
+  "ten_nha_phan_phoi": "Công ty Cổ phần Thời trang EvaAshoes",
+  "dia_chi": "96 Đ. Số 10, khu Dân Cư, Bình Chánh, Thành phố Hồ Chí Minh",
+  "so_dien_thoai": "(024) 37932705",
+  "san_pham_phan_phoi": [
+    {
+      "name": "Giày thể thao Nike Air Max",
+      "image_path": "/static/images/product1.jpg"
+    },
+    {
+      "name": "Giày thể thao Nike Air Zoom Pegasus 38",
+      "image_path": "/static/images/product2.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6638586cc7d8a7ac62832b2a"
+  },
+  "ten_nha_phan_phoi": "Công ty Giày Yee Long",
+  "dia_chi": "VPWJABFVF, Binh Hoà, Thuận An, Bình Dương",
+  "so_dien_thoai": "0274 3752 315",
+  "san_pham_phan_phoi": [
+    {
+      "name": "Giày thể thao Adidas Ultraboost",
+      "image_path": "/static/images/product3.jpg"
+    },
+    {
+      "name": "Máy tính xách tay Dell XPS 13",
+      "image_path": "/static/images/product4.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6638586cc7d8a7ac62832b2b"
+  },
+  "ten_nha_phan_phoi": "Công ty Cổ phần Thế Giới Di Động",
+  "dia_chi": "5/A1 KDC Đồng An 4, Tỉnh Lộ 43, P. Bình Hòa, TX. Thuận An, Bình Dương",
+  "so_dien_thoai": "1900 232466",
+  "san_pham_phan_phoi": [
+    {
+      "name": "Tai nghe không dây Sony WF-1000XM4",
+      "image_path": "/static/images/product5.jpg"
+    },
+    {
+      "name": "Ram Corsair Vengeance LPX 8GB/16GB 3200/3600MHz DDR4 mới 100% - Bảo hành 36 tháng",
+      "image_path": "/static/images/product6.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6638586cc7d8a7ac62832b2c"
+  },
+  "ten_nha_phan_phoi": " Công Ty TNHH Sao Mai VN",
+  "dia_chi": "2/127A Bình Nhâm 7, P. Bình Nhâm, TP. Thuận An, Bình Dương",
+  "so_dien_thoai": "0909 355 699",
+  "san_pham_phan_phoi": [
+    {
+      "name": "Áo sơ mi nam Uniqlo",
+      "image_path": "/static/images/product7.jpg"
+    },
+    {
+      "name": "Quần jeans nữ Levi's",
+      "image_path": "/static/images/product8.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6638586cc7d8a7ac62832b2d"
+  },
+  "ten_nha_phan_phoi": "Công ty Cổ phần Bán lẻ Kỹ thuật số FPT",
+  "dia_chi": "124 Đ. Sương Nguyệt Anh, Phường Phạm Ngũ Lão, Quận 1",
+  "so_dien_thoai": " 0965 249 525",
+  "san_pham_phan_phoi": [
+    {
+      "name": "Máy tính xách tay Apple MacBook Pro",
+      "image_path": "/static/images/product9.jpg"
+    },
+    {
+      "name": "Điện thoại di động Samsung Galaxy S21",
+      "image_path": "/static/images/product10.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6638586cc7d8a7ac62832b2e"
+  },
+  "ten_nha_phan_phoi": "Công ty Cổ phần Dịch vụ Thương mại Tổng hợp Vincommerce",
+  "dia_chi": "Tầng 5, Mplaza SaiGon, số 39 Lê Duẩn - Phường Bến Nghé - Quận 1",
+  "so_dien_thoai": "028-73081367",
+  "san_pham_phan_phoi": [
+    {
+      "name": "Máy ảnh Canon EOS R6",
+      "image_path": "/static/images/product11.jpg"
+    },
+    {
+      "name": "Đồng hồ thông minh Apple Watch Series 7",
+      "image_path": "/static/images/product12.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6638586cc7d8a7ac62832b2f"
+  },
+  "ten_nha_phan_phoi": "Liên hiệp Hợp tác xã Thương mại TP. Hồ Chí Minh SAIGON CO.OP",
+  "dia_chi": "131 Đ. Điện Biên Phủ, Phường 15, Bình Thạnh",
+  "so_dien_thoai": "028-38360144",
+  "san_pham_phan_phoi": [
+    {
+      "name": "Túi xách nữ Michael Kors",
+      "image_path": "/static/images/product13.jpg"
+    },
+    {
+      "name": "Ví nam Coach",
+      "image_path": "/static/images/product14.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6638586cc7d8a7ac62832b30"
+  },
+  "ten_nha_phan_phoi": "Tổng Công ty Thương mại Xuất nhập khẩu Thương Lễ LTP",
+  "dia_chi": "Số 63 Đường Yersin - Phường Hiệp Thành - TP. Thủ Dầu Một - Tỉnh Bình Dương",
+  "so_dien_thoai": "Số điện thoại 8",
+  "san_pham_phan_phoi": [
+    {
+      "name": "Nước hoa nữ Chanel No. 5",
+      "image_path": "/static/images/product15.jpg"
+    },
+    {
+      "name": "Nước hoa nam Dior Sauvage",
+      "image_path": "/static/images/product16.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6638586cc7d8a7ac62832b31"
+  },
+  "ten_nha_phan_phoi": "Công ty Cổ phần MediaMart Việt Nam",
+  "dia_chi": "255 Nguyễn Văn Tăng, Long Thạnh Mỹ, Quận 9",
+  "so_dien_thoai": "04 37 570 570",
+  "san_pham_phan_phoi": [
+    {
+      "name": "Máy lọc không khí Xiaomi Mi Air Purifier 3H",
+      "image_path": "/static/images/product17.jpg"
+    },
+    {
+      "name": "Máy pha cà phê DeLonghi Magnifica S",
+      "image_path": "/static/images/product18.jpg"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6638586cc7d8a7ac62832b32"
+  },
+  "ten_nha_phan_phoi": "Công ty Cổ phần Central Retail Corporation Việt Nam",
+  "dia_chi": "12 Tân Trào, Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+  "so_dien_thoai": "84 28 3995 8368",
+  "san_pham_phan_phoi": [
+    {
+      "name": "Tivi Samsung QLED 4K 55 inch QA55Q60AA",
+      "image_path": "/static/images/product19.jpg"
+    },
+    {
+      "name": "Tủ lạnh LG Inverter 400 lít GN-B422SQCL",
+      "image_path": "/static/images/product20.jpg"
+    }
+  ]
+}]

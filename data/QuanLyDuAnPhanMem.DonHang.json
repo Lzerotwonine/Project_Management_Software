@@ -1,0 +1,204 @@
+[{
+  "_id": {
+    "$oid": "663716b87808b11a5415896c"
+  },
+  "customer_name": "A.Hải",
+  "address": "122B Minh Phụng",
+  "phone_number": "0754126545",
+  "product_id": "661a3f883ef3897b2513fad2",
+  "product_name": "Tủ lạnh LG Inverter 400 lít GN-B422SQCL",
+  "quantity": 1,
+  "price": 10000000
+},
+{
+  "_id": {
+    "$oid": "663716e47808b11a54158978"
+  },
+  "customer_name": "Giang Hạ\t",
+  "address": "515 Trần Thái Tông\t",
+  "phone_number": "0954684564",
+  "product_id": "661a3f883ef3897b2513fad1",
+  "product_name": "Tivi Samsung QLED 4K 55 inch QA55Q60AA",
+  "quantity": 2,
+  "price": 40000000
+},
+{
+  "_id": {
+    "$oid": "6637171c7808b11a54158984"
+  },
+  "customer_name": "Thông Trần",
+  "address": "555 Lê Lai",
+  "phone_number": "0987665456",
+  "product_id": "661a3f883ef3897b2513fad0",
+  "product_name": "Máy pha cà phê DeLonghi Magnifica S",
+  "quantity": 4,
+  "price": 60000000
+},
+{
+  "_id": {
+    "$oid": "66371ae27808b11a54158992"
+  },
+  "customer_name": "Thái Hòa\t",
+  "address": "2B Trần Xuân Soạn\t",
+  "phone_number": "0789533169",
+  "product_id": "661a3f883ef3897b2513facf",
+  "product_name": "Máy lọc không khí Xiaomi Mi Air Purifier 3H",
+  "quantity": 2,
+  "price": 6000000
+},
+{
+  "_id": {
+    "$oid": "66371b477808b11a5415899e"
+  },
+  "customer_name": "Đức Hải",
+  "address": "Hẻm 56/10 Trịnh Đình Trọng",
+  "phone_number": "0879746124",
+  "product_id": "661a3f883ef3897b2513face",
+  "product_name": "Nước hoa nam Dior Sauvage",
+  "quantity": 3,
+  "price": 10500000
+},
+{
+  "_id": {
+    "$oid": "66371b7e7808b11a541589ac"
+  },
+  "customer_name": "Như Nguyệt",
+  "address": "233 Nguyễn Du\t",
+  "phone_number": "0987487942",
+  "product_id": "661a3f883ef3897b2513facd",
+  "product_name": "Nước hoa nữ Chanel No. 5",
+  "quantity": 10,
+  "price": 40000000
+},
+{
+  "_id": {
+    "$oid": "66371bd07808b11a541589b8"
+  },
+  "customer_name": "Thanh Danh",
+  "address": "Hẻm 5 Lê Quý Đôn, Phú Nhuận\t",
+  "phone_number": "0874139455",
+  "product_id": "661a3f883ef3897b2513facc",
+  "product_name": "Ví nam Coach",
+  "quantity": 1,
+  "price": 3000000
+},
+{
+  "_id": {
+    "$oid": "66371c587808b11a541589c6"
+  },
+  "customer_name": "Gia Long",
+  "address": "525 Nguyễn Đình Chiểu ,Bến Tre",
+  "phone_number": "0987784565",
+  "product_id": "661a3f883ef3897b2513faca",
+  "product_name": "Đồng hồ thông minh Apple Watch Series 7",
+  "quantity": 1,
+  "price": 10000000
+},
+{
+  "_id": {
+    "$oid": "66371cc37808b11a541589d2"
+  },
+  "customer_name": "Danh Nguyễn",
+  "address": "55 Hẻm 10 Bạch Đằng",
+  "phone_number": "0954613178",
+  "product_id": "661a3f883ef3897b2513fac9",
+  "product_name": "Máy ảnh Canon EOS R6",
+  "quantity": 1,
+  "price": 40000000
+},
+{
+  "_id": {
+    "$oid": "66371cf87808b11a541589e0"
+  },
+  "customer_name": "Tân Phược",
+  "address": "235B Thăng Long",
+  "phone_number": "0879461269",
+  "product_id": "661a3f87016e9b5dc594c054",
+  "product_name": "Điện thoại di động Samsung Galaxy S21",
+  "quantity": 10,
+  "price": 200000000
+},
+{
+  "_id": {
+    "$oid": "66371d487808b11a541589ec"
+  },
+  "customer_name": "Tuyết Như",
+  "address": "10/1 hẻm 1A  Lạc Long Quân",
+  "phone_number": "0789546474",
+  "product_id": "661a3f87016e9b5dc594c052",
+  "product_name": "Quần jeans nữ Levi's",
+  "quantity": 1,
+  "price": 1200000
+},
+{
+  "_id": {
+    "$oid": "66371dc87808b11a541589f8"
+  },
+  "customer_name": "Nam",
+  "address": "10/123B Âu Cơ",
+  "phone_number": "0879845135",
+  "product_id": "661a3f87016e9b5dc594c051",
+  "product_name": "Áo sơ mi nam Uniqlo",
+  "quantity": 5,
+  "price": 2500000
+},
+{
+  "_id": {
+    "$oid": "66371e2b7808b11a54158a09"
+  },
+  "customer_name": "Đức",
+  "address": "Hẻm 53 Lý Thường Kiệt, Quận 10",
+  "phone_number": "0898746275",
+  "product_id": "661a3f87016e9b5dc594c04f",
+  "product_name": "Tai nghe không dây Sony WF-1000XM4",
+  "quantity": 15,
+  "price": 90000000
+},
+{
+  "_id": {
+    "$oid": "66371e7c7808b11a54158a19"
+  },
+  "customer_name": "Hùng",
+  "address": "Hẻm 507/25 Lê Quang Định, Gò Vấp",
+  "phone_number": "0789874653",
+  "product_id": "661a3f87016e9b5dc594c04e",
+  "product_name": "Máy tính xách tay Dell XPS 13",
+  "quantity": 1,
+  "price": 25000000
+},
+{
+  "_id": {
+    "$oid": "66371ec87808b11a54158a2a"
+  },
+  "customer_name": "Trúc",
+  "address": "Hẻm 539 Cách Mạng Tháng 8, Quận 10",
+  "phone_number": "0986131612",
+  "product_id": "661a3f87016e9b5dc594c04d",
+  "product_name": "Giày thể thao Adidas Ultraboost",
+  "quantity": 6,
+  "price": 9000000
+},
+{
+  "_id": {
+    "$oid": "66371ef87808b11a54158a36"
+  },
+  "customer_name": "Hoàng",
+  "address": "Hẻm 52 Đường Số 12, Thủ Đức",
+  "phone_number": "0736485329",
+  "product_id": "661a3f87016e9b5dc594c04c",
+  "product_name": "Giày thể thao Nike Air Zoom Pegasus 38",
+  "quantity": 15,
+  "price": 30000000
+},
+{
+  "_id": {
+    "$oid": "66371f997808b11a54158a5b"
+  },
+  "customer_name": "Thái Dương",
+  "address": "Hẻm 482 Phan Xích Long, Phú Nhuận",
+  "phone_number": "087121648128",
+  "product_id": "661a3f87016e9b5dc594c04b",
+  "product_name": "Giày thể thao Nike Air Max",
+  "quantity": 20,
+  "price": 20000000
+}]

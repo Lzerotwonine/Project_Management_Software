@@ -1,0 +1,153 @@
+[{
+  "_id": {
+    "$oid": "663716b87808b11a5415896f"
+  },
+  "name": "Tủ lạnh LG Inverter 400 lít GN-B422SQCL",
+  "quantity_sold": 1,
+  "price_sold": 10000000,
+  "image_path": "/static/images/product20.jpg"
+},
+{
+  "_id": {
+    "$oid": "663716e47808b11a5415897b"
+  },
+  "name": "Tivi Samsung QLED 4K 55 inch QA55Q60AA",
+  "quantity_sold": 2,
+  "price_sold": 40000000,
+  "image_path": "/static/images/product19.jpg"
+},
+{
+  "_id": {
+    "$oid": "6637171c7808b11a54158987"
+  },
+  "name": "Máy pha cà phê DeLonghi Magnifica S",
+  "quantity_sold": 4,
+  "price_sold": 60000000,
+  "image_path": "/static/images/product18.jpg"
+},
+{
+  "_id": {
+    "$oid": "66371ae27808b11a54158995"
+  },
+  "name": "Máy lọc không khí Xiaomi Mi Air Purifier 3H",
+  "quantity_sold": 2,
+  "price_sold": 6000000,
+  "image_path": "/static/images/product17.jpg"
+},
+{
+  "_id": {
+    "$oid": "66371b477808b11a541589a1"
+  },
+  "name": "Nước hoa nam Dior Sauvage",
+  "quantity_sold": 3,
+  "price_sold": 10500000,
+  "image_path": "/static/images/product16.jpg"
+},
+{
+  "_id": {
+    "$oid": "66371b7e7808b11a541589af"
+  },
+  "name": "Nước hoa nữ Chanel No. 5",
+  "quantity_sold": 10,
+  "price_sold": 40000000,
+  "image_path": "/static/images/product15.jpg"
+},
+{
+  "_id": {
+    "$oid": "66371bd07808b11a541589bb"
+  },
+  "name": "Ví nam Coach",
+  "quantity_sold": 1,
+  "price_sold": 3000000,
+  "image_path": "/static/images/product14.jpg"
+},
+{
+  "_id": {
+    "$oid": "66371c587808b11a541589c9"
+  },
+  "name": "Đồng hồ thông minh Apple Watch Series 7",
+  "quantity_sold": 1,
+  "price_sold": 10000000,
+  "image_path": "/static/images/product12.jpg"
+},
+{
+  "_id": {
+    "$oid": "66371cc37808b11a541589d5"
+  },
+  "name": "Máy ảnh Canon EOS R6",
+  "quantity_sold": 1,
+  "price_sold": 40000000,
+  "image_path": "/static/images/product11.jpg"
+},
+{
+  "_id": {
+    "$oid": "66371cf87808b11a541589e3"
+  },
+  "name": "Điện thoại di động Samsung Galaxy S21",
+  "quantity_sold": 10,
+  "price_sold": 200000000,
+  "image_path": "/static/images/product10.jpg"
+},
+{
+  "_id": {
+    "$oid": "66371d487808b11a541589ef"
+  },
+  "name": "Quần jeans nữ Levi's",
+  "quantity_sold": 1,
+  "price_sold": 1200000,
+  "image_path": "/static/images/product8.jpg"
+},
+{
+  "_id": {
+    "$oid": "66371dc87808b11a541589fb"
+  },
+  "name": "Áo sơ mi nam Uniqlo",
+  "quantity_sold": 5,
+  "price_sold": 2500000,
+  "image_path": "/static/images/product7.jpg"
+},
+{
+  "_id": {
+    "$oid": "66371e2b7808b11a54158a0c"
+  },
+  "name": "Tai nghe không dây Sony WF-1000XM4",
+  "quantity_sold": 15,
+  "price_sold": 90000000,
+  "image_path": "/static/images/product5.jpg"
+},
+{
+  "_id": {
+    "$oid": "66371e7c7808b11a54158a1c"
+  },
+  "name": "Máy tính xách tay Dell XPS 13",
+  "quantity_sold": 1,
+  "price_sold": 25000000,
+  "image_path": "/static/images/product4.jpg"
+},
+{
+  "_id": {
+    "$oid": "66371ec87808b11a54158a2d"
+  },
+  "name": "Giày thể thao Adidas Ultraboost",
+  "quantity_sold": 6,
+  "price_sold": 9000000,
+  "image_path": "/static/images/product3.jpg"
+},
+{
+  "_id": {
+    "$oid": "66371ef87808b11a54158a39"
+  },
+  "name": "Giày thể thao Nike Air Zoom Pegasus 38",
+  "quantity_sold": 15,
+  "price_sold": 30000000,
+  "image_path": "/static/images/product2.jpg"
+},
+{
+  "_id": {
+    "$oid": "66371f997808b11a54158a5e"
+  },
+  "name": "Giày thể thao Nike Air Max",
+  "quantity_sold": 20,
+  "price_sold": 20000000,
+  "image_path": "/static/images/product1.jpg"
+}]

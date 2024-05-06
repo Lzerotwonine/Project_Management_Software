@@ -1,0 +1,48 @@
+[{
+  "_id": {
+    "$oid": "661cd188aa781329d7cb5e8a"
+  },
+  "username": "thien",
+  "email": "123456@gmail.com",
+  "password": "scrypt:32768:8:1$fviR9KVaiYG2bFuJ$a0a818497f2264b75a0b5e3d481268e795ad2dc5a9093bf71f42feaeb9ff68cd185d8f36ab7ab62bce8b1d85f427c7d59e75536fb17e3ba0f51261f142e142e7"
+},
+{
+  "_id": {
+    "$oid": "661cd204aa781329d7cb5e8e"
+  },
+  "username": "thien",
+  "email": "123@gmail.com",
+  "password": "scrypt:32768:8:1$jqGEtCaYymGFVVGS$2f74fc9e48ac7775bce9fe3a372f3745378abee3ed6bbabfbdb7d49d1fbfbd064f1534a4d446478e16f3dd35ed1008d07c923b7a72c9dcbcf2751855ddb27aa5"
+},
+{
+  "_id": {
+    "$oid": "661cd30f74bcfd98be2cf218"
+  },
+  "username": "thien1",
+  "email": "123@gmail.com",
+  "password": "scrypt:32768:8:1$LJEsI4FNHsoVy6VF$d0edb8b5b460c46e2181e89416b2305328495d02daeffcd398157b97e32fbb555e32510baffde4e1e41c63a30a65d693272cebe75ba5d8b4ed17f4b03a2c93e9"
+},
+{
+  "_id": {
+    "$oid": "661cdbb82664331b3f246373"
+  },
+  "username": "thien",
+  "email": "123456789@gmail.com",
+  "password": "scrypt:32768:8:1$CEnJyd3FuQ8z49ef$61a048186d5779c8ddf2a479d5ae962baba16dc1ed88de068c72cc1483e81627a134d1bf33923c28e4249326dee2678613cb9283642047313fb51c459b0db146"
+},
+{
+  "_id": {
+    "$oid": "661cde2d6eb524a4902b996c"
+  },
+  "username": "thien",
+  "email": "123321@gmail.com",
+  "password": "scrypt:32768:8:1$EGlQRud393S7AOQe$0f3fd7fc1f4a8be8d6067d55713d0abd800be53719dbd7b6d9788a491b44d6202073db3b38bc9fa9e52d7dea48554daab9870c9ddac749e4e4062a246f844660"
+},
+{
+  "_id": {
+    "$oid": "6623ac0a2018fa2998907271"
+  },
+  "username": "thien",
+  "email": "123321111111@gmail.com",
+  "password": "scrypt:32768:8:1$INUFqedeOFNvRZDo$84de4f6dcb2af1d015cc061ea070263bef53e2c9c97d41e747f7e06c43785ef87cd91fb9f3ff85c023b4ddd9195472b73a5598f2ebe9b5604168f10e2111c9c8"
+}]
