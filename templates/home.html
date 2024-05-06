@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Website quản lý kho hàng</title>
+    <link href="static/css/dashboard.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="static/js/script.js"></script>
+    <style>
+        /* Thêm CSS cho layout flexbox */
+        #chartContainer {
+            display: flex;
+            justify-content: flex-start; /* Căn giữa theo chiều ngang */
+            align-items: center; /* Căn giữa theo chiều dọc */
+        }
+        .chart {
+            width: 60%;
+            height: auto;
+        }
+        .chart canvas {
+            width: 140% !important;
+            height: auto !important;
+        }
+    </style>
+</head>
+
+<body>
+<div class="dashboard">
+    <div class="left">
+        <div class="navigation">
+            <div class="wrapper2">
+                <div class="folder-icons">
+                    <div class="abilan">
+                        <img src="static/icon/icon.png"/>
+                    </div>
+
+                    <div class="icon-name">
+                        QUẢN LÍ KHO
+                    </div>
+                </div>
+
+                <div class="folder-icons">
+
+                    <div class="icon1">
+                        <img src="static/icon/home.png"/>
+                    </div>
+
+                    <div class="icon-name">
+                        <a href="/home">Trang chủ</a>
+                    </div>
+                </div>
+
+                <div class="folder-icons">
+                    <div class="icon1">
+                        <img src="static/icon/inventory.png"/>
+                    </div>
+
+                    <div class="icon-name">
+                        <a href="/products">Kho hàng</a>
+                    </div>
+                </div>
+
+                <div class="folder-icons">
+                    <div class="icon1">
+                        <img src="static/icon/create.png"/>
+                    </div>
+
+                    <div class="icon-name">
+                        <a href="/add_order">Tạo đơn hàng</a>
+                    </div>
+                </div>
+
+                <div class="folder-icons">
+                    <div class="icon1">
+                        <img src="static/icon/stock.png"/>
+                    </div>
+
+                    <div class="icon-name">
+                        <a href="/orders">Danh sách đơn hàng</a>
+                    </div>
+                </div>
+
+                <div class="folder-icons">
+                    <div class="icon1">
+                        <img src="static/icon/customer-white.png"/>
+                    </div>
+
+                    <div class="icon-name">
+                        <a href="/distributors">Nhà phân phối</a>
+                    </div>
+                </div>
+                <div class="folder-icons">
+                    <div class="icon1">
+                        <img src="static/icon/report.png"/>
+                    </div>
+
+                    <div class="icon-name">
+                        <a href="/report">Thống kê</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="right-side">
+        <div class="right-header">
+            <div class="top-bar">
+                <div class="top-bar-justify">
+                    <div class="big-inbox">
+                        <b>WEBSITE QUẢN LÍ KHO HÀNG</b>
+                    </div>
+                </div>
+
+                <div class="right-bottom">
+                    <div class="check">
+                    </div>
+                    <div class="middle-buttons">
+                        <form action="/search" method="get">
+                            <div class="form has-search">
+                                <input class="text" type="search" placeholder="Tìm kiếm sản phẩm..." name="query" />
+                                <span class="searchIcon"><img src="https://i.ibb.co/sqFgRq8/search.png" /></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="profile2">
+                    <img src="static/icon/customer.png"/>
+
+                    <div class="icon-name5">
+                        {% if 'logged_in' in session %}
+
+
+                            <div class="nav-item nav-link">
+                                {{ session['username'] }}
+                            </div>
+
+                            <a href="{{ url_for('logout') }}" class="nav-item nav-link">Thoát</a>
+                        {% else %}
+                            <a href="{{ url_for('login') }}" class="nav-item nav-link">Đăng nhập</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <hr class="new-hr"/>
+        </div>
+
+        <div class="right-body">
+            <div class="message">
+                <div class="title">
+                    <div class="scroll-cards">
+                        <div class="card-container">
+                            <div class="card">
+                                <h2>Sản phẩm sắp hết</h2>
+                                <hr>
+                                <div id="lowStockProductList"></div>
+                            </div>
+
+                            <div class="right-container">
+                                <h2>Tổng số lượng</h2>
+                                <div class="top-class">
+                                    <b><div id="totalProducts"></div></b>
+                                </div>
+                                <div class="bottom-class">
+                                    <b><div id="totalQuantity"></div></b>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-container">
+                            <div class="card-small">
+                                <h2>Chi tiết sản phẩm</h2>
+                                <hr>
+
+                                <div id="chartContainer">
+                                    <div class="chart">
+                                        <canvas id="inventoryChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-right">
+                                <h2>Sản phẩm bán chạy</h2>
+                                <hr>
+                                <div id="topSellingProducts">
+                                    <div id="productList"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title-icons"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

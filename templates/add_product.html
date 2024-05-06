@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thêm sản phẩm mới</title>
+    <link href="static/css/stylesheet.css" rel="stylesheet"/>
+    <style>
+        /* Thêm kiểu cho container của nút */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 78.5%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+        <a href="http://127.0.0.1:5000/products" class="back-button">Quay lại</a>
+        <h1>Thêm sản phẩm mới</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <label for="name">Tên sản phẩm:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="description">Mô tả:</label><br>
+        <textarea id="description" name="description"></textarea><br>
+        <label for="price">Giá:</label><br>
+        <input type="number" id="price" name="price"><br>
+        <label for="quantity_in_stock">Số lượng trong kho:</label><br>
+        <input type="number" id="quantity_in_stock" name="quantity_in_stock"><br>
+        <label for="image">Hình ảnh:</label><br>
+        <input type="file" id="image" name="image"><br>
+        <label for="nha_phan_phoi">Nhà phân phối:</label><br>
+        <input type="text" id="nha_phan_phoi" name="nha_phan_phoi"><br>
+        <input type="submit" value="Thêm sản phẩm">
+
+    </form>
+</body>
+</html>

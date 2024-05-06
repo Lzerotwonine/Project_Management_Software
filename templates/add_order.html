@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thêm đơn hàng</title>
+    <link href="static/css/stylesheet.css" rel="stylesheet"/>
+    <style>
+    </style>
+</head>
+<body>
+    <a href="http://127.0.0.1:5000/home" class="back-button">Quay lại</a>
+    <h1>Thêm đơn hàng</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <label for="customer_name">Tên khách hàng:</label><br>
+        {{ form.customer_name(id='customer_name') }}<br>
+        <label for="address">Địa chỉ:</label><br>
+        {{ form.address(id='address') }}<br>
+        <label for="phone_number">Số điện thoại:</label><br>
+        {{ form.phone_number(id='phone_number') }}<br>
+        <label>{{ form.product_name.label }}</label><br>
+        {{ form.product_name() }}<br>
+
+        <label>{{ form.quantity.label }}</label><br>
+        {{ form.quantity(id='quantity') }}<br>
+        {% for error in form.quantity.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+
+        <label for="price">Giá:</label><br>
+        {{ form.price(id='price') }}<br>
+        {{ form.submit(value="Thêm") }}
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('#product_name').change(function(){
+            var productId = $(this).val();
+            $.get("/product_price", {product_id: productId}, function(data){
+                $('#price').val(data);
+            });
+        });
+
+        $('#quantity').change(function(){
+            var quantity = $(this).val();
+            var pricePerUnit = $('#price').val();  // Giá mỗi đơn vị
+            var price = pricePerUnit * quantity;
+            $('#price').val(price);
+        });
+    });
+    </script>
+
+</body>
+</html>

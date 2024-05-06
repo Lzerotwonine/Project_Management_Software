@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="static/css/dashboard.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        h1 {
+            text-align: center; /* Căn giữa tiêu đề */
+            color: #4CAF50; /* Thay đổi màu tiêu đề */
+        }
+
+        .back-button {
+            background-color: #f44336; /* Red */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition: background 0.5s;
+        }
+
+        .back-button {
+            order: 1;
+            margin-right: auto;
+        }
+
+        .back-button:hover {
+            background-color: #da190b;
+        }
+
+        /* Thêm kiểu cho nút */
+        .btn {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            margin: auto; /* Căn giữa nút */
+            transition: all 0.3s ease; /* Thêm hiệu ứng chuyển đổi */
+        }
+
+        .btn {
+            font-size: 14px; /* Giảm kích thước chữ */
+            padding: 10px 15px; /* Giảm kích thước nút */
+        }
+
+        .btn-add {
+            background-color: #008CBA; /* Màu xanh dương */
+            font-size: 18px; /* Tăng kích thước chữ */
+            padding: 10px 15px; /* Tăng kích thước nút */
+        }
+
+        .btn-add {
+            order: 3;
+            margin-left: auto;
+        }
+
+        .btn-add:hover {
+            background-color: #007B9A; /* Màu xanh dương đậm hơn khi di chuột qua */
+        }
+
+        .btn-delete {
+            background-color: #f44336; /* Màu đỏ */
+        }
+
+        .btn-edit {
+            background-color: #4CAF50; /* Màu xanh dương */
+        }
+
+        .btn-edit, .btn-delete {
+            margin-left: auto; /* Đẩy các nút về phía bên phải */
+        }
+
+        .btn:active {
+             background-color: #3e8e41;
+             box-shadow: 0 5px #666;
+             transform: translateY(4px);
+         }
+        .btn:hover {
+            opacity: 0.8; /* Làm mờ khi di chuột qua */
+        }
+
+        .btn:hover {background-color: #3e8e41}
+
+        /* Thêm kiểu cho container của nút */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 5%; /* Thêm padding vào hai bên */
+            align-items: center;
+            max-width: 80%;
+            margin: auto;
+        }
+
+        .product .hidden-content {
+            display: none;
+        }
+
+        .product img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover; /* Giữ sắc nét và chỉ hiển thị một phần của ảnh */
+            margin-right: 20px; /* Thêm khoảng cách giữa ảnh và thông tin sản phẩm */
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 10px;
+            transition: transform .2s;
+            background-color: #f9f9f9; /* Thêm màu nền */
+        }
+
+        .product {
+            display: flex; /* Sắp xếp ảnh và thông tin sản phẩm trên cùng một hàng */
+            align-items: center; /* Căn giữa các mục theo chiều dọc */
+            justify-content: space-between; /* Phân bổ đều không gian giữa các mục */
+        }
+
+        .product {
+            width: 95%; /* Cho phép sản phẩm chiếm toàn bộ chiều rộng của container */
+            margin: 1%; /* Thêm lề xung quanh sản phẩm */
+        }
+
+        .product-actions {
+            margin-left: auto; /* Đẩy các nút về phía bên phải */
+        }
+
+        .product-list {
+            display: block; /* Thay đổi từ flex sang block */
+            flex-wrap: nowrap; /* Không cho phép các sản phẩm chuyển xuống hàng tiếp theo */
+            justify-content: space-around; /* Căn giữa danh sách sản phẩm */
+            overflow: auto; /* Thêm thanh cuộn nếu sản phẩm vượt quá chiều rộng của trình duyệt */
+            max-height: 900px; /* Giới hạn chiều cao tối đa */
+        }
+
+        .product-list {
+            display: block; /* Thay đổi từ flex sang block */
+            width: 80%; /* Thu nhỏ sản phẩm */
+            margin: auto; /* Căn giữa danh sách sản phẩm */
+        }
+
+        .product:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Thêm bóng */
+        }
+        .right-bottom {
+            order: 2; /* Thêm thuộc tính order để đặt thanh tìm kiếm và các dropdown ở giữa */
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Thay đổi từ space-between sang center để căn giữa các phần tử bên trong */
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $(".btn").click(function(event){
+                event.stopPropagation();
+            });
+            $(".product").click(function(){
+                $(this).find(".hidden-content").slideToggle("slow");
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Danh sách sản phẩm</h1>
+
+    <div class="button-container">
+        <a href="http://127.0.0.1:5000/home" class="back-button">Quay lại</a>
+        <div class="right-bottom">
+            <div class="check">
+            </div>
+            <div class="middle-buttons">
+                <form action="/search" method="get">
+                    <div class="form has-search">
+                        <input class="text" type="search" placeholder="Tìm kiếm sản phẩm..." name="query" value="{{ request.args.get('query', '') }}" />
+                        <span class="searchIcon"><img src="https://i.ibb.co/sqFgRq8/search.png" /></span>
+                    </div>
+                </form>
+            </div>
+            <div class="search-arrow">
+                <form action="/sort" method="get">
+                    <select name="sort_by">
+                        <option value="name">Tên sản phẩm</option>
+                        <option value="nha_phan_phoi">Nhà phân phối</option>
+                        <option value="quantity_in_stock">Số lượng trong kho</option>
+                    </select>
+                    <select name="order">
+                        <option value="asc">Tăng dần</option>
+                        <option value="desc">Giảm dần</option>
+                    </select>
+                    <input type="submit" value="Sắp xếp" />
+                </form>
+            </div>
+        </div>
+        <a href="/add_product" class="btn btn-add"><i class="fas fa-plus"></i> Thêm sản phẩm</a>
+    </div>
+
+    <div class="product-list">
+        {% for product in products %}
+            <div class="product">
+                <img src="{{ product.image_path }}" alt="{{ product.name }}">
+                <div>
+                    <h2>{{ product.name }}</h2>
+                    <p>Giá: {{ product.price }}</p>
+                    <p>Số lượng trong kho: {{ product.quantity_in_stock }}</p>
+                    <p>Nhà phân phối: {{ product.nha_phan_phoi }}</p>
+                    <div class="hidden-content">
+                        <p>{{ product.description }}</p>
+                    </div>
+                </div>
+                <div class="product-actions">
+                    <a href="/edit_product/{{ product._id }}" class="btn btn-edit"><i class="fas fa-pencil-alt"></i>Sửa</a>
+                    <a href="/delete_product/{{ product._id }}" class="btn btn-delete"><i class="fas fa-trash-alt"></i>Xoá</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
