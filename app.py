@@ -410,6 +410,7 @@ def low_stock_products():
         {"$match": {"quantity_in_stock": {"$lt": 30}}},
         {"$project": {"_id": 0, "name": 1, "image_path": 1, "quantity_in_stock": 1}},
         {"$sort": {"quantity_in_stock": 1}},
+        {"$limit": 5}
     ]
     low_stock_products = collection.aggregate(pipeline)
     return jsonify(list(low_stock_products))
